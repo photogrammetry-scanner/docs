@@ -1,6 +1,6 @@
 # C-code Feeder Arduino CNC shield
 
-A simple G-code feeder for the Arduino UNO CNC shield that is accessed wirelessly. Commands can be sent manually by the http:// api or automatically from G-code file.
+A simple G-code feeder for the Arduino UNO CNC shield that is accessed wirelessly. Commands can be sent manually by the http:// api or automatically from G-code file (idea shamelessly stolen here: [thingiverse.com/thing:3960533](https://www.thingiverse.com/thing:3960533)).
 
 **Description**
 
