@@ -1,4 +1,4 @@
-# Notes to slightly modified GRBL firmware
+# Notes GRBL G-Codes and modifications
 
 ## Modifications
 
@@ -14,9 +14,9 @@ some command tokens were modified.
 |           :            |         0x91          | feed override increase: +10% |
 |           ;            |         0x92          | feed override decrease: -10% |
 
-Supported tokens: A B C D E H O Q U V W ; : / ( ´ § ° µ €
-Unsupported tokens: , . _ { } \ < > | ) = [ ] ` ^ " % & * # @
-Used tokens: F G I J K L M N P R S T X Y Z $ 
+- Supported tokens: A B C D E H O Q U V W ; : / ( ´ § ° µ €
+- Unsupported tokens: , . _ { } \ < > | ) = [ ] ` ^ " % & * # @
+- Used tokens: F G I J K L M N P R S T X Y Z $ 
 
 ### Spindle as servo PWM
 
@@ -47,8 +47,8 @@ The servo signal resolution is reduced to 15 steps which are about 66 spindle-st
 | [G30.1](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g30-g30.1)   | AXIS_COMMAND_NON_MODAL   | set position                                                                         |
 | [G92](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g92)           | AXIS_COMMAND_NON_MODAL   | set coordinate system offset                                                         |
 | [G92.1](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g92.1-g92.2) | AXIS_COMMAND_NON_MODAL   | turn off offset                                                                      |
-| [G4](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g4)             | MODAL_GROUP_G0           |                                                                                      |
-| [G53](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g53)           | MODAL_GROUP_G0           |                                                                                      |
+| [G4](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g4)             | MODAL_GROUP_G0           | dwell                                                                                |
+| [G53](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g53)           | MODAL_GROUP_G0           | move in machine coordinates                                                          |
 | [G0](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g0)             | AXIS_COMMAND_MOTION_MODE | rapid move                                                                           |
 | [G1](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g1)             | AXIS_COMMAND_MOTION_MODE | linear move                                                                          |
 | [G2](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g2-g3)          | AXIS_COMMAND_MOTION_MODE | clockwise arc move                                                                   |
