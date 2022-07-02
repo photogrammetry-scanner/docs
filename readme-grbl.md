@@ -38,46 +38,46 @@ The servo signal resolution is reduced to 15 steps which are about 66 spindle-st
 
 ## GRBL supported C-codes
 
-| Code                                                                            | Modal group              | Description                                                                          |
-|:--------------------------------------------------------------------------------|:-------------------------|:-------------------------------------------------------------------------------------|
-| [G10](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g10-l1)        | AXIS_COMMAND_NON_MODAL   | set tool table / set coordiante system                                               |
-| [G28](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g28-g28.1)     | AXIS_COMMAND_NON_MODAL   | go to position                                                                       |
-| [G28.1](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g28-g28.1)   | AXIS_COMMAND_NON_MODAL   | set position                                                                         |
-| [G30](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g30-g30.1)     | AXIS_COMMAND_NON_MODAL   | go to position                                                                       |
-| [G30.1](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g30-g30.1)   | AXIS_COMMAND_NON_MODAL   | set position                                                                         |
-| [G92](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g92)           | AXIS_COMMAND_NON_MODAL   | set coordinate system offset                                                         |
-| [G92.1](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g92.1-g92.2) | AXIS_COMMAND_NON_MODAL   | turn off offset                                                                      |
-| [G4](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g4)             | MODAL_GROUP_G0           | dwell                                                                                |
-| [G53](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g53)           | MODAL_GROUP_G0           | move in machine coordinates                                                          |
-| [G0](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g0)             | AXIS_COMMAND_MOTION_MODE | rapid move                                                                           |
-| [G1](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g1)             | AXIS_COMMAND_MOTION_MODE | linear move                                                                          |
-| [G2](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g2-g3)          | AXIS_COMMAND_MOTION_MODE | clockwise arc move                                                                   |
-| [G3](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g2-g3)          | AXIS_COMMAND_MOTION_MODE | counterclockwise arc move                                                            |
-| [G38](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g38)           | AXIS_COMMAND_MOTION_MODE | straight probe                                                                       |
-| [G38.2](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g38)         | AXIS_COMMAND_MOTION_MODE | straight probe toward workpiece, stop on contact, signal error if failure            |
-| [G38.3](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g38)         | AXIS_COMMAND_MOTION_MODE | straight probe toward workpiece, stop on contact                                     |
-| [G38.4](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g38)         | AXIS_COMMAND_MOTION_MODE | straight probe away from workpiece, stop on loss of contact, signal error if failure |
-| [G38.5](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g38)         | AXIS_COMMAND_MOTION_MODE | straight probe away from workpiece, stop on loss of contact                          |
-| [G80](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g80)           | MODAL_GROUP_G1           | cancel canned cycle                                                                  |
-| [G17](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g17-g19.1)     | MODAL_GROUP_G2           | xy plane select (default)                                                            |
-| [G18](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g17-g19.1)     | MODAL_GROUP_G2           | zx plane select                                                                      |
-| [G19](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g17-g19.1)     | MODAL_GROUP_G2           | yz plane select                                                                      |
-| [G90](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g90-g91)       | MODAL_GROUP_G3           | G90 absolute distance mode                                                           |
-| [G91](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g90-g91)       | MODAL_GROUP_G3           | incremental distance mode                                                            |
-| [G93](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g93-g94-g95)   | MODAL_GROUP_G5           | inverse time feed rate mode                                                          |
-| [G94](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g93-g94-g95)   | MODAL_GROUP_G5           | units per minue feed rate mode                                                       |
-| [G20](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g20-g21)       | MODAL_GROUP_G6           | unit: inch                                                                           |
-| [G21](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g20-g21)       | MODAL_GROUP_G6           | unit: Millimeter                                                                     |
-| [G40](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g40)           | MODAL_GROUP_G7           | turh cuttercompensation off                                                          |
-| [G43](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g43)           | MODAL_GROUP_G8           | tool length offset                                                                   |
-| [G49](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g49)           | MODAL_GROUP_G8           | cancel tool length compensation                                                      |
-| [G54](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | MODAL_GROUP_G12          | select coordinate system 1                                                           |
-| [G55](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | MODAL_GROUP_G12          | select coordinate system 2                                                           |
-| [G56](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | MODAL_GROUP_G12          | select coordinate system 3                                                           |
-| [G57](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | MODAL_GROUP_G12          | select coordinate system 4                                                           |
-| [G58](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | MODAL_GROUP_G12          | select coordinate system 5                                                           |
-| [G59](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | MODAL_GROUP_G12          | select coordinate system 6                                                           |
-| [G61](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g61)           | MODAL_GROUP_G13          | exact path mode                                                                      |
+| Code                                                                            | Description                                                                          | Modal group              |
+|:--------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|:-------------------------|
+| [G10](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g10-l1)        | set tool table / set coordiante system                                               | AXIS_COMMAND_NON_MODAL   |
+| [G28](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g28-g28.1)     | go to position                                                                       | AXIS_COMMAND_NON_MODAL   |
+| [G28.1](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g28-g28.1)   | set position                                                                         | AXIS_COMMAND_NON_MODAL   |
+| [G30](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g30-g30.1)     | go to position                                                                       | AXIS_COMMAND_NON_MODAL   |
+| [G30.1](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g30-g30.1)   | set position                                                                         | AXIS_COMMAND_NON_MODAL   |
+| [G92](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g92)           | set coordinate system offset                                                         | AXIS_COMMAND_NON_MODAL   |
+| [G92.1](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g92.1-g92.2) | turn off offset                                                                      | AXIS_COMMAND_NON_MODAL   |
+| [G4](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g4)             | dwell                                                                                | MODAL_GROUP_G0           |
+| [G53](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g53)           | move in machine coordinates                                                          | MODAL_GROUP_G0           |
+| [G0](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g0)             | rapid move                                                                           | AXIS_COMMAND_MOTION_MODE |
+| [G1](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g1)             | linear move                                                                          | AXIS_COMMAND_MOTION_MODE |
+| [G2](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g2-g3)          | clockwise arc move                                                                   | AXIS_COMMAND_MOTION_MODE |
+| [G3](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g2-g3)          | counterclockwise arc move                                                            | AXIS_COMMAND_MOTION_MODE |
+| [G38](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g38)           | straight probe                                                                       | AXIS_COMMAND_MOTION_MODE |
+| [G38.2](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g38)         | straight probe toward workpiece, stop on contact, signal error if failure            | AXIS_COMMAND_MOTION_MODE |
+| [G38.3](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g38)         | straight probe toward workpiece, stop on contact                                     | AXIS_COMMAND_MOTION_MODE |
+| [G38.4](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g38)         | straight probe away from workpiece, stop on loss of contact, signal error if failure | AXIS_COMMAND_MOTION_MODE |
+| [G38.5](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g38)         | straight probe away from workpiece, stop on loss of contact                          | AXIS_COMMAND_MOTION_MODE |
+| [G80](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g80)           | cancel canned cycle                                                                  | MODAL_GROUP_G1           |
+| [G17](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g17-g19.1)     | xy plane select (default)                                                            | MODAL_GROUP_G2           |
+| [G18](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g17-g19.1)     | zx plane select                                                                      | MODAL_GROUP_G2           |
+| [G19](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g17-g19.1)     | yz plane select                                                                      | MODAL_GROUP_G2           |
+| [G90](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g90-g91)       | G90 absolute distance mode                                                           | MODAL_GROUP_G3           |
+| [G91](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g90-g91)       | incremental distance mode                                                            | MODAL_GROUP_G3           |
+| [G93](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g93-g94-g95)   | inverse time feed rate mode                                                          | MODAL_GROUP_G5           |
+| [G94](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g93-g94-g95)   | units per minue feed rate mode                                                       | MODAL_GROUP_G5           |
+| [G20](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g20-g21)       | unit: inch                                                                           | MODAL_GROUP_G6           |
+| [G21](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g20-g21)       | unit: Millimeter                                                                     | MODAL_GROUP_G6           |
+| [G40](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g40)           | turh cuttercompensation off                                                          | MODAL_GROUP_G7           |
+| [G43](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g43)           | tool length offset                                                                   | MODAL_GROUP_G8           |
+| [G49](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g49)           | cancel tool length compensation                                                      | MODAL_GROUP_G8           |
+| [G54](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | select coordinate system 1                                                           | MODAL_GROUP_G12          |
+| [G55](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | select coordinate system 2                                                           | MODAL_GROUP_G12          |
+| [G56](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | select coordinate system 3                                                           | MODAL_GROUP_G12          |
+| [G57](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | select coordinate system 4                                                           | MODAL_GROUP_G12          |
+| [G58](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | select coordinate system 5                                                           | MODAL_GROUP_G12          |
+| [G59](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g54-g59.3)     | select coordinate system 6                                                           | MODAL_GROUP_G12          |
+| [G61](https://www.linuxcnc.org/docs/html/gcode/g-code.html#gcode:g61)           | exact path mode                                                                      | MODAL_GROUP_G13          |
 
 See also:
 
@@ -86,19 +86,19 @@ See also:
 
 ## GRBL supported M-codes
 
-| Code                                                                      | Modal group    | Description                                                         |
-|:--------------------------------------------------------------------------|:---------------|:--------------------------------------------------------------------|
-| [M0](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m0-m1)    | MODAL_GROUP_M4 | pause program                                                       |
-| [M1](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m0-m1)    | MODAL_GROUP_M4 | pause program                                                       |
-| [M2](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m2-m30)   | MODAL_GROUP_M4 | end program                                                         |
-| [M30](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m2-m30)  | MODAL_GROUP_M4 | change pallet shuttles and end program                              |
-| [M3](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m3-m4-m5) | MODAL_GROUP_M7 | start spindle clockwise                                             |
-| [M4](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m3-m4-m5) | MODAL_GROUP_M7 | start spindle counterclockwise                                      |
-| [M5](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m3-m4-m5) | MODAL_GROUP_M7 | stop spindle                                                        |
-| [M7](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m7-m8-m9) | MODAL_GROUP_M8 | mist coolant on (requires ENABLE_M7)                                |
-| [M8](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m7-m8-m9) | MODAL_GROUP_M8 | flood coolant on                                                    |
-| [M9](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m7-m8-m9) | MODAL_GROUP_M8 | both coolants off                                                   |
-| M56                                                                       | MODAL_GROUP_M9 | parking control override (requires ENABLE_PARKING_OVERRIDE_CONTROL) |
+| Code                                                                      | Description                                                         | Modal group    |
+|:--------------------------------------------------------------------------|:--------------------------------------------------------------------|:---------------|
+| [M0](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m0-m1)    | pause program                                                       | MODAL_GROUP_M4 |
+| [M1](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m0-m1)    | pause program                                                       | MODAL_GROUP_M4 |
+| [M2](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m2-m30)   | end program                                                         | MODAL_GROUP_M4 |
+| [M30](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m2-m30)  | change pallet shuttles and end program                              | MODAL_GROUP_M4 |
+| [M3](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m3-m4-m5) | start spindle clockwise                                             | MODAL_GROUP_M7 |
+| [M4](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m3-m4-m5) | start spindle counterclockwise                                      | MODAL_GROUP_M7 |
+| [M5](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m3-m4-m5) | stop spindle                                                        | MODAL_GROUP_M7 |
+| [M7](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m7-m8-m9) | mist coolant on (requires ENABLE_M7)                                | MODAL_GROUP_M8 |
+| [M8](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m7-m8-m9) | flood coolant on                                                    | MODAL_GROUP_M8 |
+| [M9](https://www.linuxcnc.org/docs/html/gcode/m-code.html#mcode:m7-m8-m9) | both coolants off                                                   | MODAL_GROUP_M8 |
+| M56                                                                       | parking control override (requires ENABLE_PARKING_OVERRIDE_CONTROL) | MODAL_GROUP_M9 |
 
 See also:
 
