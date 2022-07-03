@@ -28,4 +28,4 @@ In case of file, it is read line by line from the controller's file system and s
 Note: the transmission from Arduino is 5V compatible whereas the Wemos D1 mini reception is 3.3V compatible. 
 Here the level shift is done by 1k/2.2k voltage divider.
 
-<img width=50% src="https://github.com/photogrammetry-scanner/docs/blob/main/images/sketch.jpg" />
+<img width=50% src="https://github.com/photogrammetry-scanner/docs/blob/main/images/sketch.png" />
